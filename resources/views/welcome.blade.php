@@ -19,6 +19,7 @@
             </style>
         @endif
     </head>
+    <p>Rakhmat Herlambang</p>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
         <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
             <img id="background" class="absolute -left-20 top-0 max-w-[877px]" src="https://laravel.com/assets/img/welcome/background.svg" alt="Laravel background" />
@@ -57,7 +58,9 @@
                             </nav>
                         @endif
                     </header>
-
+                     <div class="namaNpm" style="color:white;text-align:center">
+                        <p>RAKHMAT HERLAMBANG - 2217051112</p> 
+                    </div>
                     <main class="mt-6">
                         <div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
                             <a
