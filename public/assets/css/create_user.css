@@ -1,60 +1,73 @@
+/* Styling untuk seluruh body */
 body {
-  background-color: #1c1c1c; /* Dark background */
-  color: #e6c200; /* Gold text color */
-  font-family: 'Arial', sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+    background-color: #1c1c1c; /* Latar belakang dark */
+    color: #e6c200; /* Teks berwarna gold */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
 }
 
+/* Styling untuk judul */
 h1 {
-  color: #e6c200;
-  font-size: 32px;
-  margin-bottom: 20px;
+    color: #e6c200; /* Warna gold untuk judul */
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
+/* Styling untuk form */
 form {
-  background-color: #2a2a2a;
-  border-radius: 10px;
-  padding: 30px;
-  width: 350px;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.6);
-  text-align: center;
+    background-color: #2a2a2a; /* Warna background gelap */
+    border-radius: 10px;
+    padding: 30px;
+    width: 350px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.6); /* Shadow yang lembut */
+    text-align: center;
 }
 
+/* Styling untuk label */
 label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 16px;
-  color: #e6c200;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #e6c200; /* Gold untuk label */
 }
 
-input[type="text"] {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: none;
-  background-color: #333;
-  color: #e6c200;
-  font-size: 14px;
+/* Styling untuk input text */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333; /* Warna gelap untuk input */
+    color: #e6c200; /* Warna gold untuk teks input */
+    font-size: 14px;
 }
 
+/* Styling untuk tombol submit */
 button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-  background-color: #e6c200;
-  color: #1c1c1c;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e6c200; /* Warna gold untuk tombol */
+    color: #1c1c1c; /* Warna gelap untuk teks tombol */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+/* Hover effect pada tombol */
 button:hover {
-  background-color: #d4b100;
+    background-color: #d4b100; /* Warna sedikit lebih gelap saat hover */
+}
+
+/* Styling untuk select dropdown */
+select {
+    cursor: pointer; /* Pointer saat hover pada select */
 }

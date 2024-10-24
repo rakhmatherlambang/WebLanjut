@@ -10,9 +10,9 @@
 <body>
     <div class="profile-card">
         <img src="{{ asset('assets/img/blkgirl.jpeg') }}" alt="Profile Picture">
-        <h2>{{ $nama }}</h2>
-        <p>{{ $kelas }}</p>
-        <p>{{ $npm }}</p>
+        <h2>Nama: {{ $nama }}</h2>
+        <p>NPM: {{ $npm }}</p>
+        <p>Kelas: {{ $nama_kelas ?? 'Kelas tidak ditemukan' }}</p>
     </div>
 </body>
 </html>

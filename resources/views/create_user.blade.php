@@ -20,8 +20,12 @@
         <input type="text" id="npm" name="npm" required>
       </div>
       <div>
-        <label for="kelas">Kelas:</label>
-        <input type="text" id="kelas" name="kelas" required>
+        <label for="id_kelas">Kelas:</label><br>
+        <select name="kelas_id" id="kelas_id" required>
+          @foreach ($kelas as $kelasItem )
+          <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>       
+          @endforeach
+        </select>
       </div>
       <div>
         <button type="submit">Submit</button>
