@@ -1,7 +1,8 @@
+/* Styling untuk seluruh body */
 body {
-    background-color: #0d1117;
-    color: #c9d1d9;
-    font-family: 'Courier New', Courier, monospace;
+    background-color: #1c1c1c; /* Latar belakang dark */
+    color: #e6c200; /* Teks berwarna gold */
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,40 +10,46 @@ body {
     margin: 0;
 }
 
+/* Styling untuk card profil */
 .profile-card {
-    background-color: #161b22;
-    border: 2px solid #58a6ff;
-    border-radius: 10px;
+    background-color: #2a2a2a; /* Warna background dark */
+    border-radius: 15px;
     padding: 20px;
-    width: 300px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.6); /* Shadow yang lembut */
+    width: 300px;
+    transition: transform 0.3s ease;
 }
 
+/* Hover effect pada card */
+.profile-card:hover {
+    transform: scale(1.05); /* Sedikit memperbesar saat hover */
+}
+
+/* Styling untuk gambar profil */
 .profile-card img {
-    border-radius: 50%;
-    border: 3px solid #58a6ff;
-    margin-bottom: 20px;
-    width: 100px;
-    height: 100px;
+    border-radius: 50%; /* Bentuk gambar bulat */
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid #e6c200; /* Border gold di sekitar gambar */
 }
 
+/* Nama dengan font size besar dan warna emas */
 .profile-card h2 {
-    margin: 10px 0;
-    color: #58a6ff;
+    color: #e6c200;
+    font-size: 24px;
+    margin: 15px 0 5px;
 }
 
+/* Styling untuk teks kelas dan NPM */
 .profile-card p {
-    background-color: #21262d;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    color: #c9d1d9;
+    color: #ccc; /* Warna abu-abu terang untuk teks detail */
+    font-size: 16px;
+    margin: 5px 0;
 }
 
+/* Hover effect untuk teks di dalam card */
 .profile-card p:hover {
-    background-color: #30363d;
-    color: #58a6ff;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #e6c200; /* Ubah teks menjadi gold saat dihover */
 }
