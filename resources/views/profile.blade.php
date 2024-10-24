@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Cyber Profile</title>
+    <!-- Link ke file CSS -->
+    @vite('resources/css/profile.css')
 </head>
 <body>
-  <tr>
-    <td>Nama</td>
-    <td>:</td>
-    <td><?= $nama ?></td>
-  </tr><br>
-  <tr>
-    <td>Kelas</td>
-    <td>:</td>
-    <td><?= $kelas ?></td>
-  </tr><br>
-  <tr>
-    <td>NPM</td>
-    <td>:</td>
-    <td><?= $npm ?></td>
-  </tr>
-  
+    <div class="profile-card">
+        <img src="{{ asset('images/blkgirl.jpeg') }}" alt="Profile Picture">
+        <h2>{{ $nama }}</h2>
+        <p>{{ $kelas }}</p>
+        <p>{{ $npm }}</p>
+    </div>
 </body>
 </html>
