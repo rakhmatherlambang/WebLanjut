@@ -10,10 +10,17 @@
 </head>
 <body>
     <div class="profile-card">
-        <img src="{{ asset('assets/img/blkgirl.jpeg') }}" alt="Profile Picture">
+        @if($foto) <!-- Periksa apakah foto ada -->
+            <img src="{{ asset('storage/' . $foto) }}" alt="Profile Picture">
+        @else
+            <img src="{{ asset('assets/img/blkgirl.jpeg') }}" alt="Default Profile Picture"> <!-- Gambar default jika foto tidak ada -->
+        @endif
+
         <h2>Nama: {{ $nama }}</h2>
         <p>NPM: {{ $npm }}</p>
         <p>Kelas: {{ $nama_kelas ?? 'Kelas tidak ditemukan' }}</p>
     </div>
 </body>
 </html>
+
+
