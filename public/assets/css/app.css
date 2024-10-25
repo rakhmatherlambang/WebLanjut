@@ -1,0 +1,86 @@
+/* Gaya dasar untuk tema Dark Gold yang elegan */
+body {
+    background-color: #1c1c1c;  /* Warna latar belakang hitam */
+    color: #d4af37;  /* Warna teks emas */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Gaya elemen header dan judul */
+h1, h2, h3, h4, h5, h6 {
+    color: #d4af37;  /* Teks judul berwarna emas */
+    text-transform: uppercase;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Gaya untuk tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #d4af37;  /* Border berwarna emas */
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #333333;  /* Background header tabel */
+    color: #d4af37;  /* Teks header emas */
+}
+
+td {
+    background-color: #2a2a2a;  /* Background sel */
+    color: #ffffff;  /* Teks berwarna putih */
+}
+
+/* Gaya untuk tombol */
+button {
+    background-color: #d4af37;  /* Tombol emas */
+    color: #1c1c1c;  /* Teks tombol hitam */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #b88929;  /* Warna tombol saat hover */
+}
+
+/* Gaya untuk input form */
+input, select {
+    background-color: #2a2a2a;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input::placeholder {
+    color: #999999;  /* Placeholder abu-abu */
+}
+
+/* Gaya link */
+a {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #b88929;
+    text-decoration: underline;
+}
+
+/* Gaya untuk footer */
+footer {
+    background-color: #1c1c1c;
+    color: #d4af37;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #d4af37;
+}

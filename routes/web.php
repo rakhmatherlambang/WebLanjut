@@ -8,9 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('user/profile', [ProfileController::class, 'profile'] );
+Route::get('/user/create', [UserController::class, 'create'] );
 
+Route::get('/user', [UserController::class, 'index'] ) -> name('users.index');
 
-Route::get('user/create', [UserController::class, 'create'] );
+Route::POST('/user/store', [UserController::class, 'store'] ) -> name('user.store');
 
-Route::POST('user/store', [UserController::class, 'store'] ) -> name('user.store');
+Route::get('/user/profile/{id}', [UserController::class, 'show'] ) -> name('user.show');

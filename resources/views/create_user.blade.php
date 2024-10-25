@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,8 +7,12 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('assets/css/create_user.css') }}">
   <title>Create User</title>
-</head>
-<body>
+</head> --}}
+{{-- <body> --}}
+  @extends('layouts.app')
+
+  @section('content')
+
   <h1>Create User</h1>
   <form action="{{ route('user.store') }}" method="POST" novalidate>
       @csrf
@@ -44,5 +48,6 @@
         <button type="submit">Submit</button>
       </div>
   </form>
-</body>
-</html>
+  @endsection
+{{-- </body>
+</html> --}}
