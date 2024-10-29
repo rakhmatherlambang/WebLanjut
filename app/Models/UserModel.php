@@ -17,12 +17,19 @@ class UserModel extends Model
         'npm',
         'kelas_id',
         'foto',
+        'lab_id',
     ];
 
     public function kelas()
     {
         return $this->belongsTo(Kelas::class, 'kelas_id');
     }
+
+    public function lab()
+    {
+        return $this->belongsTo(Lab::class, 'lab_id');
+    }
+
 
     public function getUser($id = null){
         if ($id != null) {
@@ -33,3 +40,4 @@ class UserModel extends Model
         }
     }
 }
+

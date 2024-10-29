@@ -10,6 +10,7 @@
             <th>Nama</th>
             <th>NPM</th>
             <th>Kelas</th>
+            <th>Lab</th>
             <th>Foto</th>
             <th>Aksi</th>
         </tr>
@@ -21,6 +22,7 @@
                 <td>{{ $user->nama }}</td>
                 <td>{{ $user->npm }}</td>
                 <td>{{ $user->kelas->nama_kelas ?? 'Kelas Tidak Ditemukan' }}</td>
+                <td>{{ $user->lab->nama_lab ?? 'Lab Tidak Ditemukan' }}</td>
                 <td>
                     <img src="{{ asset('storage/' . $user->foto) }}" alt="Profile Picture" width="100">
                 </td>

@@ -33,6 +33,23 @@
             <p class="text-danger">{{ $message }}</p>
         @enderror
     </div>
+    
+    <div>
+        <label for="lab_id">Lab:</label>
+        <select name="lab_id" id="lab_id" required>
+            <option value="">Pilih Lab</option>
+            @foreach ($labs as $lab)
+                <option value="{{ $lab->id }}" {{ old('lab_id') == $lab->id ? 'selected' : '' }}>
+                    {{ $lab->nama_lab }}
+                </option>
+            @endforeach
+        </select>
+        @error('lab_id')
+            <p class="text-danger">{{ $message }}</p>
+        @enderror
+    </div>
+
+
     <div>
         <label for="foto">Foto:</label>
         <input type="file" id="foto" name="foto"> <br>

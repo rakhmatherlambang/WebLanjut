@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kelas;
+use App\Models\Lab;
 use App\Models\UserModel;
 
 class UserController extends Controller
@@ -20,8 +21,10 @@ class UserController extends Controller
     public function create()
     {
         $kelas = Kelas::all();
+        $labs = Lab::all(); 
         return view('create_user', [
             'kelas' => $kelas,
+            'labs' => $labs,
             'title' => 'Create User',
         ]);
     }
@@ -37,11 +40,13 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());s
         // Validasi data
         $request->validate([
             'nama' => 'required|string|max:255',
             'npm' => 'required|string|max:255',
             'kelas_id' => 'required|exists:kelas,id',
+            'lab_id' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -56,6 +61,7 @@ class UserController extends Controller
             'nama' => $request->input('nama'),
             'npm' => $request->input('npm'),
             'kelas_id' => $request->input('kelas_id'),
+            'lab_id' => $request->input('lab_id'),
             'foto' => $fotoPath,
         ]);
 

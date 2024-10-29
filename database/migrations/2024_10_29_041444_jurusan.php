@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user', function (Blueprint $table){
+        Schema::create('jurusan', function (Blueprint $table){
             $table->id();
-            $table->string('nama');
-            $table->string('npm');
-            $table->foreignId('kelas_id')->constrained();
-            $table->foreign('lab_id')->references('id')->on('lab')->onDelete('set null');
-            $table->timestamps();
+            $table->string('nama_jurusan');
         });
     }
 
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user');
+        //
     }
 };

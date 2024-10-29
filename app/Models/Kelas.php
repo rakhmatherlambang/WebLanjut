@@ -15,12 +15,7 @@ class Kelas extends Model
         return $this->hasMany(UserModel::class, 'kelas_id');
     }
 
-    protected $table = 'kelas'; // Tambahkan titik koma
-
-    // Jika method ini hanya untuk mengambil semua data, bisa dihapus
-    // public function getKelas(){
-    //     return $this->all();
-    // }
+    protected $table = 'kelas'; 
 
     public function kelas(){
     return $this->belongsTo(Kelas::class, 'kelas_id');
