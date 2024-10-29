@@ -35,8 +35,9 @@ class UserController extends Controller
         ]);
     }
 
-    public function store(Request $request){
-        // Validasi data yang masuk
+    public function store(Request $request)
+    {
+        // Validasi data
         $request->validate([
             'nama' => 'required|string|max:255',
             'npm' => 'required|string|max:255',
@@ -45,56 +46,64 @@ class UserController extends Controller
         ]);
 
         // Menghandle upload foto
-        // Menghandle upload foto
-        $fotoPath = null; // Default fotoPath
-
-        if ($request->hasFile('foto')) {
-            $foto = $request->file('foto');
-            
-            // Cek jika file berhasil diupload
-            if ($foto->isValid()) {
-                // Menyimpan foto ke folder uploads/img dan mendapatkan jalurnya
-                $fotoPath = $request->file('foto')->store('uploads/img', 'public'); // Pastikan ini sesuai dengan folder Anda
-            } else {
-                return back()->withErrors(['foto' => 'File upload tidak valid.']);
-            }
+        $fotoPath = null;
+        if ($request->hasFile('foto') && $request->file('foto')->isValid()) {
+            $fotoPath = $request->file('foto')->store('uploads/img', 'public');
         }
-
 
         // Buat user baru
         $this->userModel->create([
-        'nama' => $request->input('nama'),
-        'npm' => $request->input('npm'),
-        'kelas_id' => $request->input('kelas_id'),
-        'foto' => $fotoPath, // Menyimpan jalur yang benar
+            'nama' => $request->input('nama'),
+            'npm' => $request->input('npm'),
+            'kelas_id' => $request->input('kelas_id'),
+            'foto' => $fotoPath,
         ]);
 
-
-        return redirect()->route('users.index');  // Redirect ke route users.index
+        return redirect()->route('users.index')->with('success', 'User created successfully');
     }
-
 
     public function show($id)
     {
-        // Cari user berdasarkan id dan load relasi dengan Kelas
-        // $user = UserModel::with('kelas')->findOrFail($id);
+        $user = UserModel::with('kelas')->findOrFail($id);
+        $kelas = $user->kelas;
+        $title = 'Detail ' . $user->nama;
 
-        // // Mengirimkan data user ke view profile
-        // return view('profile', [
-        //     'nama' => $user->nama,
-        //     'npm' => $user->npm,
-        //     'nama_kelas' => $user->kelas->nama_kelas ?? 'Kelas Tidak Ditemukan',
-        //     'foto' => $user->foto,
-        // ]);
+        return view('profile', compact('user', 'kelas', 'title'));
+    }
 
+    public function edit($id)
+    {
+        $user = UserModel::findOrFail($id);
+        $kelas = Kelas::all();
+        $title = 'Edit User';
 
-        $user = $this->userModel->getUser($id);
+        return view('edit_user', compact('user', 'kelas', 'title'));
+    }
 
-        $data = [
-            'title' => 'Profile',
-            'user' => $user,
-        ];
+    public function update(Request $request, $id)
+    {
+        $user = UserModel::findOrFail($id);
 
-        return view ('profile', $data);
+        $user->nama = $request->nama;
+        $user->npm = $request->npm;
+        $user->kelas_id = $request->kelas_id;
+
+        if ($request->hasFile('foto') && $request->file('foto')->isValid()) {
+            $fileName = time() . '.' . $request->foto->extension();
+            $request->foto->move(public_path('storage/uploads'), $fileName);
+            $user->foto = 'uploads/' . $fileName;
+        }
+
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', 'User updated successfully');
+    }
+
+    public function destroy($id)
+    {
+        $user = UserModel::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('users.index')->with('success', 'User has been deleted successfully');
     }
 }
