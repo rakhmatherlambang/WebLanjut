@@ -77,14 +77,24 @@ class UserController extends Controller
     public function show($id)
     {
         // Cari user berdasarkan id dan load relasi dengan Kelas
-        $user = UserModel::with('kelas')->findOrFail($id);
+        // $user = UserModel::with('kelas')->findOrFail($id);
 
-        // Mengirimkan data user ke view profile
-        return view('profile', [
-            'nama' => $user->nama,
-            'npm' => $user->npm,
-            'nama_kelas' => $user->kelas->nama_kelas ?? 'Kelas Tidak Ditemukan',
-            'foto' => $user->foto,
-        ]);
+        // // Mengirimkan data user ke view profile
+        // return view('profile', [
+        //     'nama' => $user->nama,
+        //     'npm' => $user->npm,
+        //     'nama_kelas' => $user->kelas->nama_kelas ?? 'Kelas Tidak Ditemukan',
+        //     'foto' => $user->foto,
+        // ]);
+
+
+        $user = $this->userModel->getUser($id);
+
+        $data = [
+            'title' => 'Profile',
+            'user' => $user,
+        ];
+
+        return view ('profile', $data);
     }
 }

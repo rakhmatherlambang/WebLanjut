@@ -10,6 +10,7 @@
             <th>Nama</th>
             <th>NPM</th>
             <th>Kelas</th>
+            <th>Detail</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -20,6 +21,7 @@
                 <td>{{ $user->nama }}</td>
                 <td>{{ $user->npm }}</td>
                 <td>{{ $user->kelas->nama_kelas ?? 'Kelas Tidak Ditemukan' }}</td>
+                <td><a href="{{ route('user.show', $user->id) }}" class="btn btn-warning mb-3">Detail</a></td>
                 <td>
                     <a href="{{ route('user.show', $user->id) }}">Lihat Profil</a>
                 </td>
